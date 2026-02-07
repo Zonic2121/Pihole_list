@@ -1689,7 +1689,6 @@
 ||michiganrobotflower.com^
 ||micpn.com^
 ||microad.jp^
-||microsoft.com^
 ||midas-network.com^
 ||mile.so^
 ||mindbehind.com^
