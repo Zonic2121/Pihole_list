@@ -1,5 +1,3 @@
-""" This code is built with help of Microsoft Copilot. """
-
 import json
 import re
 import os
@@ -9,7 +7,7 @@ def load_privacy_badger_json(path):
     Loads Privacy Badger's exported JSON file.
     Extracts only domains where:
       heuristicAction == "block"
-      AND userAction == "block"
+      OR userAction == "block"
     """
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -27,61 +25,67 @@ def load_privacy_badger_json(path):
 
 
 def domain_to_pihole_regex(domain):
-    r"""
-    Convert a domain into a Pi-hole regex:
-    (^|\.)(example\.com)$
     """
-    escaped = re.escape(domain)
-    return rf"(^|\.){escaped}$"
+    Convert a domain into a Pi-hole Adblock-style rule:
+    ||example.com^
+    """
+    return rf"||{domain}^"
 
 
-def load_existing_pihole_list(path):
+def load_list_file(path):
     """
-    Loads an existing Pi-hole regex list.
+    Loads a list file (regex list or whitelist).
     Removes comments and blank lines.
     """
     if not os.path.exists(path):
-        return []
+        return set()
 
-    entries = []
+    entries = set()
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-            entries.append(line)
+            entries.add(line)
 
     return entries
 
 
-def convert_json_to_pihole(input_path, output_path):
+def convert_json_to_pihole(input_path, output_path, whitelist_path):
     # Load PB domains
     pb_domains = load_privacy_badger_json(input_path)
     pb_regexes = {domain_to_pihole_regex(d) for d in pb_domains}
 
     # Load existing Pi-hole list
-    existing_regexes = set(load_existing_pihole_list(output_path))
+    existing_regexes = load_list_file(output_path)
+
+    # Load whitelist
+    whitelist = load_list_file(whitelist_path)
 
     # --- FULL SYNC LOGIC ---
-    # 1. Keep entries that are still blocked
     still_blocked = existing_regexes.intersection(pb_regexes)
-
-    # 2. Add new entries
     new_entries = pb_regexes - existing_regexes
 
-    # 3. Remove entries no longer blocked (implicitly done by not including them)
     merged = still_blocked.union(new_entries)
+
+    # --- APPLY WHITELIST ---
+    cleaned = merged - whitelist
 
     # Write back sorted
     with open(output_path, "w", encoding="utf-8") as f:
-        for r in sorted(merged):
+        for r in sorted(cleaned):
             f.write(r + "\n")
 
     print(f"Existing entries kept: {len(still_blocked)}")
     print(f"New entries added: {len(new_entries)}")
     print(f"Removed (no longer blocked): {len(existing_regexes - pb_regexes)}")
-    print(f"Total entries written: {len(merged)} → {output_path}")
+    print(f"Whitelist removals: {len(merged - cleaned)}")
+    print(f"Total entries written: {len(cleaned)} → {output_path}")
 
 
 if __name__ == "__main__":
-    convert_json_to_pihole("privacy_badger.json", "pihole_regex_list.txt")
+    convert_json_to_pihole(
+        "privacy_badger.json",
+        "pihole_regex_list.txt",
+        "whitelist.txt"
+    )
