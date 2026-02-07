@@ -1,4 +1,3 @@
-||heise.de^
 ||00px.net^
 ||06yahoo.com^
 ||0c9747d501.com^
@@ -1187,7 +1186,6 @@
 ||google.ca^
 ||google.co.in^
 ||google.co.uk^
-||google.com^
 ||google.de^
 ||google.fr^
 ||googleadservices.com^
