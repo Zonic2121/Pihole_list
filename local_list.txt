@@ -2153,7 +2153,6 @@
 ||reamaze.io^
 ||rebelmouse.io^
 ||receptivity.io^
-||reddit.com^
 ||redintelligence.net^
 ||reebr.com^
 ||reemo-ad.jp^
@@ -2681,7 +2680,6 @@
 ||trialhd.com^
 ||tribalfusion.com^
 ||tribl.io^
-||tripadvisor.com^
 ||triptease.io^
 ||trkn.us^
 ||trkwwtarget.com^
