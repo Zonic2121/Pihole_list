@@ -1364,7 +1364,6 @@
 ||inside.chat^
 ||insightexpressai.com^
 ||inspectlet.com^
-||instagram.com^
 ||instajob.ai^
 ||instana.io^
 ||instaread.co^
@@ -1988,7 +1987,6 @@
 ||pixlee.co^
 ||pixlee.com^
 ||placed.com^
-||platform.instagram.com^
 ||platform.linkedin.com^
 ||platform.twitter.com^
 ||playdigo.com^
@@ -2938,7 +2936,6 @@
 ||www.aparat.com^
 ||www.bitchute.com^
 ||www.iheart.com^
-||www.instagram.com^
 ||www.rutube.ru^
 ||www.threads.net^
 ||www.tiktok.com^
