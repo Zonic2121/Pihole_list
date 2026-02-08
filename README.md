@@ -11,3 +11,7 @@ It tries to open pihole_regex_list.txt before creating a new one, so it will upd
 1) Add new entries which are not in the list yet.
 2) Removes entries which are not marked as "block" in the json anymore (remove obsolete entries)
 3) It is not deleting entries which are not in the json anymore, this is to be able to extend the pihole list from different json foles (from different users or PC/MAC/UNIX maschines.
+
+Additional Notes:
+- after commiting a newer version a the list it takes arround 300 Seconds for github to use the changes in the "RaW" view which is used by pihole.
+  This is because Github uses a chached Version for the raw view with an update timeout of 300 Seconds.
