@@ -1022,8 +1022,6 @@
 ||ezoic.net^
 ||f12.bet^
 ||facct.ru^
-||facebook.com^
-||facebook.net^
 ||fam-8.net^
 ||fam-ad.com^
 ||farawayinstallation.com^
@@ -2939,7 +2937,6 @@
 ||wwd.com^
 ||www.aparat.com^
 ||www.bitchute.com^
-||www.facebook.com^
 ||www.iheart.com^
 ||www.instagram.com^
 ||www.rutube.ru^
