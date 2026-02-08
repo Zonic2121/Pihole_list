@@ -7,3 +7,6 @@
 ||facebook.com^
 ||facebook.net^
 ||www.facebook.com^
+||instagram.com^
+||platform.instagram.com^
+||www.instagram.com^
