@@ -10,3 +10,5 @@
 ||instagram.com^
 ||platform.instagram.com^
 ||www.instagram.com^
+||reddit.com^
+||tripadvisor.com^
