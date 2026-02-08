@@ -965,7 +965,6 @@
 ||eltiempo.co^
 ||embed.bsky.app^
 ||embed.ly^
-||embed.spotify.com^
 ||embed.twitch.tv^
 ||embedly.com^
 ||embowerdatto.com^
@@ -1895,7 +1894,6 @@
 ||opamarketplace.com^
 ||opecloud.com^
 ||open-adsyield.com^
-||open.spotify.com^
 ||openfpcdn.io^
 ||openssp.ru^
 ||openweb.bid^
@@ -2008,7 +2006,6 @@
 ||pmc.com^
 ||pmweb.com.br^
 ||pnl.agency^
-||podcasters.spotify.com^
 ||podscribe.com^
 ||pogothere.xyz^
 ||pointmediatracker.com^
@@ -2458,7 +2455,6 @@
 ||sportradar.com^
 ||sportradarserving.com^
 ||sportslocalmedia.com^
-||spotify.com^
 ||spotim.market^
 ||sppopups.com^
 ||sprig.com^
