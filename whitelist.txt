@@ -1,2 +1,9 @@
 ||microsoft.com^
 ||google.com^
+||spotify.com^
+||embed.spotify.com^
+||open.spotify.com^
+||podcasters.spotify.com^
+||facebook.com^
+||facebook.net^
+||www.facebook.com^
