@@ -13,3 +13,4 @@
 ||reddit.com^
 ||tripadvisor.com^
 ||eventim.com^
+||visualstudio.com^
