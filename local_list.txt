@@ -2833,7 +2833,6 @@
 ||visilabs.net^
 ||visitorqueue.com^
 ||vistarsagency.com^
-||visualstudio.com^
 ||visualwebsiteoptimizer.com^
 ||visx.net^
 ||vk-portal.net^
