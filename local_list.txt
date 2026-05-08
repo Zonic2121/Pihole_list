@@ -845,7 +845,6 @@
 ||dianomi.com^
 ||dicouksa.com^
 ||didna.io^
-||digicert.com^
 ||diginetica.net^
 ||digital-services.solutions^
 ||digitalaudience.io^
