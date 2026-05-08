@@ -423,7 +423,6 @@
 ||aza.io^
 ||azerion.com^
 ||azshopp.com^
-||azure.com^
 ||b0e8.com^
 ||b2c.com^
 ||b52d1cf65f.com^
