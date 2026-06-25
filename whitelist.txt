@@ -16,3 +16,4 @@
 ||visualstudio.com^
 ||digicert.com^
 ||azure.com^
+||globalsign.com^
