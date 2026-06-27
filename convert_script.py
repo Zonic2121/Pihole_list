@@ -55,37 +55,37 @@ def convert_json_to_pihole(input_path, output_path, whitelist_path):
     # Load PB domains
     pb_domains = load_privacy_badger_json(input_path)
     pb_regexes = {domain_to_pihole_regex(d) for d in pb_domains}
-
+    print(f"New entries in EFF list: {len(pb_regexes)}")
     # Load existing Pi-hole list
     existing_regexes = load_list_file(output_path)
+    print(f"Existing entries in list: {len(existing_regexes)}")
 
     # Load whitelist
     whitelist = load_list_file(whitelist_path)
 
     # --- FULL SYNC LOGIC ---
     still_blocked = existing_regexes.intersection(pb_regexes)
+    print(f"New entries already in block list: {len(still_blocked)}")
     new_entries = pb_regexes - existing_regexes
-
-    merged = still_blocked.union(new_entries)
-
+    print(f"New entries to add to list: {len(new_entries)}")
+    merged = existing_regexes.union(new_entries)
+    print(f"Total entries before whitelist: {len(merged)}")
     # --- APPLY WHITELIST ---
     cleaned = merged - whitelist
+    print(f"Whitelist entries: {len(whitelist)}")
+    print(f"Whitelist removals from list: {len(merged - cleaned)}")
 
     # Write back sorted
     with open(output_path, "w", encoding="utf-8") as f:
         for r in sorted(cleaned):
             f.write(r + "\n")
 
-    print(f"Existing entries kept: {len(still_blocked)}")
-    print(f"New entries added: {len(new_entries)}")
-    print(f"Removed (no longer blocked): {len(existing_regexes - pb_regexes)}")
-    print(f"Whitelist removals: {len(merged - cleaned)}")
     print(f"Total entries written: {len(cleaned)} → {output_path}")
 
 
 if __name__ == "__main__":
     convert_json_to_pihole(
         "privacy_badger.json",
-        "pihole_regex_list.txt",
+        "local_list.txt",
         "whitelist.txt"
     )
